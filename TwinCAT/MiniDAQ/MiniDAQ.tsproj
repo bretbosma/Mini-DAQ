@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4022.27">
+<?xml version="1.0"?>
+<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.12">
 	<ImageDatas>
 		<ImageData Id="1000">424dd6020000000000003600000028000000100000000e0000000100180000000000a0020000c40e0000c40e00000000000000000000241ced241ced241ced241cedffffff241cedffffffffffffffffff241cedffffffffffffffffff241cedffffffffffff241cedffffffffffffffffffffffff241cedffffffffffffffffff241cedffffffffffffffffff241cedffffffffffff241cedffffffffffffffffffffffff241ced241ced241ced241ced241cedffffffffffffffffff241cedffffffffffff241cedffffffffffffffffffffffff241cedffffffffffffffffff241cedffffffffffffffffff241cedffffffffffff241cedffffffffffffffffffffffff241ced241cedffffff241ced241cedffffff241cedffffff241cedffffff241ced241ced241ced241ced241cedffffffffffff241ced241ced241cedffffffffffff241ced241ced241ced241ced241cedffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff241ced241ced241cedffffffffffff241ced241ced241cedffffff241ced241ced241cedffffff241ced241ced241ced241cedffffffffffffffffff241cedffffffffffff241cedffffffffffffffffff241cedffffffffffffffffff241ced241cedffffffffffffffffffffffff241ced241cedffffffffffff241ced241ced241cedffffff241ced241ced241ced241ced241cedffffffffffffffffffffffffffffff241cedffffff241cedffffffffffffffffff241cedffffff241ced241cedffffffffffffffffffffffff241ced241ced241cedffffff241ced241ced241cedffffff241cedffffff241ced241cedffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff241ced241ced241cedffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</ImageData>
 	</ImageDatas>
-	<Project ProjectGUID="{73C82DFC-1AED-4ECB-BED7-31650FD5B0D1}" Target64Bit="true" ShowHideConfigurations="#x306">
+	<Project ProjectGUID="{75223C71-0336-48A1-95E9-17787A784C54}" Target64Bit="true" ShowHideConfigurations="#x106">
 		<System>
 			<Tasks>
 				<Task Id="2" Priority="1" CycleTime="100000" AmsPort="301">
@@ -18,33 +18,34 @@
 					<Vars VarGrpType="2" InsertType="1">
 						<Name>Outputs</Name>
 					</Vars>
-					<Image Id="3" AddrType="1" ImageType="1" SizeIn="2">
+					<Image Id="1" AddrType="1" ImageType="1" SizeIn="2">
 						<Name>Image</Name>
 					</Image>
 				</Task>
 			</Tasks>
 		</System>
 		<Io>
-			<Device DevType="111" DevFlags="#x0003" AmsPort="28675" AmsNetId="10.249.87.24.4.1" RemoteName="Device 3 (EtherCAT)" Id="3">
+			<Device Id="3" DevType="111" DevFlags="#x0003" AmsPort="28675" AmsNetId="169.254.236.46.4.1" RemoteName="Device 3 (EtherCAT)">
 				<Name>Device 3 (EtherCAT)</Name>
 				<AddressInfo>
 					<Pnp>
 						<DeviceDesc>Ethernet (Realtek USB GbE Family Controller)</DeviceDesc>
-						<DeviceName>\DEVICE\{EF0AA386-EDE4-4131-916C-FFA826935565}</DeviceName>
-						<DeviceData>a44cc8dae91c</DeviceData>
+						<DeviceName>\DEVICE\{560507EF-2C12-4916-8627-FFF954300DEE}</DeviceName>
+						<DeviceData>747827ca12aa</DeviceData>
 					</Pnp>
 				</AddressInfo>
-				<Image Id="1" AddrType="9" ImageType="3">
+				<Image Id="2" AddrType="9" ImageType="3">
 					<Name>Image</Name>
 				</Image>
-				<Box BoxType="9099" Id="1">
+				<Box Id="1" BoxType="9099">
 					<Name>Box 1 (MiniDAQ_FOSWEC_V3)</Name>
 					<ImageId>1000</ImageId>
-					<EtherCAT SlaveType="1" PdiType="#x0380" CycleMBoxPollingTime="0" VendorId="#x0000060f" ProductCode="#x00000003" RevisionNo="#x00000001" CheckRevisionNoType="2" PortPhys="17" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="MiniDAQ_FOSWEC_V3" Desc="MiniDAQ_FOSWEC_V3" PortABoxInfo="#x00ffffff">
+					<EtherCAT SlaveType="1" PdiType="#x0380" CycleMBoxPollingTime="0" VendorId="#x0000060f" ProductCode="#x00000003" RevisionNo="#x00000001" InfoDataDcTimes="true" CheckRevisionNoType="2" PortPhys="17" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="MiniDAQ_FOSWEC_V3" Desc="MiniDAQ_FOSWEC_V3" PortABoxInfo="#x00ffffff">
 						<SyncMan>001000006400000003000000000000000000001064010000</SyncMan>
 						<SyncMan>001226002000010004000000000000000000001220010000</SyncMan>
 						<Fmmu>0000000000000000000000020000000001000000000000000000000000000000</Fmmu>
 						<Fmmu>0000000000000000001200010100000002000000000000000000000000000000</Fmmu>
+						<DcData>0001000000000000000000000000000001000000000000000000000000000000</DcData>
 						<DcMode>534d5f53796e63206f72204173796e00534d5f53796e63206f72204173796e6300000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000</DcMode>
 						<DcMode>44435f53796e6300000000000000000044435f53796e63000000000000000000000000000000000000000000000000000000000040a1387700000000000000030100000000000000000000000000000000000000000000000000000000000000</DcMode>
 						<Pdo Name="Inputs" Index="#x1a00" Flags="#x0011" SyncMan="1">
@@ -88,11 +89,12 @@
 						<Pdo Name="Outputs" Index="#x1600" InOut="1" Flags="#x0011" SyncMan="0"/>
 					</EtherCAT>
 				</Box>
-				<EtherCAT DeviceDesc="Ethernet (Realtek USB GbE Family Controller)"/>
+				<EtherCAT DcSyncMode="3"/>
 			</Device>
 		</Io>
 	</Project>
 	<Mappings>
+		<MappingInfo Identifier="{00000000-0020-0304-1000-040320000403}" Id="#x02030010"/>
 		<OwnerA Name="TIRT^Task 2">
 			<OwnerB Name="TIID^Device 3 (EtherCAT)^Box 1 (MiniDAQ_FOSWEC_V3)">
 				<Link VarA="Inputs^Var 32" VarB="Inputs^ADC0"/>

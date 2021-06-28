@@ -14,7 +14,7 @@
 //♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Instances Definition♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
 //                                    ▼▼▼
 EasyCAT EASYCAT(9);      // Define EasyCAT Instance and specify EasyCAT SPI ChipSelect Pin in paranthesis
-DMTimer myTimer(10000);   // Define myTimer Instance and specify Sample Time in Micro Seconds, 10 msec
+DMTimer myTimer(1000);   // Define myTimer Instance and specify Sample Time in Micro Seconds, 1 msec
 ADS1115 ads;              // Define 4-20mA transducer instance
 
 //♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Global Variables♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
@@ -97,11 +97,12 @@ void loop()
   EASYCAT.MainTask();       // UDF for EasyCAT Trigger
   read_ADC();               // UDF for ADC reading
   adc0 = ads.Measure_SingleEnded(0);  // current sensor read value
-  read_IMU();               // UDF for IMU reading
+//  read_IMU();               // UDF for IMU reading
   EtherCAT_Frame_Update();  // UDF for EtherCAT data Frame Updating
-  IMU_Packet_Deframe();     // UDF for IMU Data frame decoding
+//  IMU_Packet_Deframe();     // UDF for IMU Data frame decoding
 
-  Serial.print(N) ;Serial.print("\t");
+  //Serial.print(N);
+  //Serial.print("\t");
   
   Serial.println((micros()-t)/1000.); // Loop execution time
 
@@ -235,10 +236,10 @@ void heartbeat()
   if (count == 1){
     digitalWrite(Debug_LED, HIGH); //Turn LED on                        
   }
-  else if (count == 100){
+  else if (count == 1000){
     digitalWrite(Debug_LED, LOW); //Turn LED off                      
   }
-  else if (count == 200){
+  else if (count == 2000){
     count = 0;                      
   }
 }
