@@ -96,13 +96,13 @@ void loop()
   heartbeat();              // Blink LED to prove it is alive!
   EASYCAT.MainTask();       // UDF for EasyCAT Trigger
   read_ADC();               // UDF for ADC reading
-  adc0 = ads.Measure_SingleEnded(0);  // current sensor read value
-//  read_IMU();               // UDF for IMU reading
+  //adc0 = ads.Measure_SingleEnded(0);  // current sensor read value
+  //read_IMU();               // UDF for IMU reading
   EtherCAT_Frame_Update();  // UDF for EtherCAT data Frame Updating
-//  IMU_Packet_Deframe();     // UDF for IMU Data frame decoding
+  //IMU_Packet_Deframe();     // UDF for IMU Data frame decoding
 
-  //Serial.print(N);
-  //Serial.print("\t");
+  Serial.print(N);
+  Serial.print("\t");
   
   Serial.println((micros()-t)/1000.); // Loop execution time
 
