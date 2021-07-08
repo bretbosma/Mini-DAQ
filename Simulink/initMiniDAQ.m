@@ -8,9 +8,9 @@ appname = 'MiniDAQapp';
 buildDir = fullfile('C:','SimulinkBuild');
 
 Ts = 1/1000;    % sample time for real time processes
-stopTime = '100';
+stopTime = '3660';
 
-tgName = 'performance';    % primary speedgoat (control if using 2 SG)
+tgName = 'baseline';    % primary speedgoat (control if using 2 SG)
 
 % =========================================================================
 

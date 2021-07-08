@@ -176,7 +176,7 @@ void Initialize_IMU(void)
   {
   Serial.println("IMU Initilisation Failed 10 Attempts");
   //
-  while(1);  // Code stop here.
+  //while(1);  // Code stop here.
     }
 }
 
