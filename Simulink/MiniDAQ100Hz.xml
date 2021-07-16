@@ -3,9 +3,9 @@
 	<Config>
 		<Master>
 			<Info>
-				<Name><![CDATA[Device 3 (EtherCAT)]]></Name>
+				<Name><![CDATA[Device 2 (EtherCAT)]]></Name>
 				<Destination>010105010000</Destination>
-				<Source>747827ca12aa</Source>
+				<Source>a44cc8dae91c</Source>
 				<EtherType>a488</EtherType>
 			</Info>
 			<InitCmds>
