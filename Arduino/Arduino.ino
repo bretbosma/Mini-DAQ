@@ -24,7 +24,7 @@ const int Debug_LED = 48;   // LED used for debuging purposes
 //--->>>ADC Variables<<<<
 const int CS_ADC = 53;   // ADC SPI ChipSelect
 word M1ADC[4];          // four 16bit differential ADC variables
-byte ADC[8];
+byte M2ADC[8];
 unsigned long t;        // variable to store time in MicroSecs, for loop execution time monitoring
 
 //--->>>IMU Commands<<<<
@@ -115,8 +115,8 @@ void read_ADC()
     digitalWrite(CS_ADC, LOW);
     M1ADC[add] = SPI.transfer16( x );
     digitalWrite(CS_ADC, HIGH);
-    ADC[2 * add] = highByte(M1ADC[add]);
-    ADC[2 * add + 1] = lowByte(M1ADC[add]);
+    M2ADC[2*add] = highByte(M1ADC[add]);
+    M2ADC[2*add +1] = lowByte(M1ADC[add]);
   }
 }
 
@@ -173,15 +173,15 @@ void EtherCAT_Frame_Update()
 {
   for (byte a = 0; a <= 7; a++)
   {
-    EASYCAT.BufferIn.Byte[a] = ADC[a];  // two bytes for each channel ADC
+    EASYCAT.BufferIn.Byte[a] = M2ADC[a];  // two bytes for each channel ADC
   }
 
-  for (byte b = 0 b <= 11; b++)
+  for (byte b = 0; b <= 11; b++)
   {
     EASYCAT.BufferIn.Byte[b + 8] = IMUPacket[b + 7]; // four bytes for each roll, pitch, yaw
   }
 
-  for (byte c = 0 c <= 11; c++)
+  for (byte c = 0; c <= 11; c++)
   {
     EASYCAT.BufferIn.Byte[c + 21] = IMUPacket[c + 22]; // four bytes for each ax, ay, az
   }
