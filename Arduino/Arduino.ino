@@ -44,6 +44,7 @@ byte IMUPacket[Len];          // IMU Data Capture Array
 unsigned int N = 0;             // Number of IMU bytes captured each sample time in IMUPacket[] array
 unsigned int count = 0;
 
+float r;      //3*Eulers
 //♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Setup♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
 //                                    ▼▼▼
 void setup()
@@ -94,8 +95,9 @@ void loop()
 
   Serial.print(N);
   Serial.print("\t");
-
-  Serial.println((micros() - t) / 1000.); // Loop execution time
+  Serial.print((micros() - t) / 1000.); // Loop execution time
+  Serial.print("\t");
+  Serial.println(r);
 
   while (!myTimer.isTimeReached());  // Wait here Till 10 msec sample time Tick
 }
@@ -179,7 +181,6 @@ void IMU_Packet_Deframe(void)
   if(N==Len)
   {
     r = binToFloat(IMUPacket[7],IMUPacket[8],IMUPacket[9],IMUPacket[10]);      //deg
-    Serial.print(r);
     //p = binToFloat(IMUPacket[11],IMUPacket[12],IMUPacket[13],IMUPacket[14]);
     //y = binToFloat(IMUPacket[15],IMUPacket[16],IMUPacket[17],IMUPacket[18]);
     
