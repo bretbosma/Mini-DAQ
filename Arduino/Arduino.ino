@@ -14,7 +14,7 @@
 //♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Instances Definition♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
 //                                    ▼▼▼
 EasyCAT EASYCAT(9);      // Define EasyCAT Instance and specify EasyCAT SPI ChipSelect Pin in paranthesis
-DMTimer myTimer(1000);   // Define myTimer Instance and specify Sample Time in Micro Seconds, 1 msec
+DMTimer myTimer(10000);   // Define myTimer Instance and specify Sample Time in Micro Seconds, 10 msec
 
 //♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Global Variables♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
 //                                    ▼▼▼
@@ -44,7 +44,8 @@ byte IMUPacket[Len];          // IMU Data Capture Array
 unsigned int N = 0;             // Number of IMU bytes captured each sample time in IMUPacket[] array
 unsigned int count = 0;
 
-float r;      //3*Eulers
+float r,p,y;      //3*Eulers
+
 //♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Setup♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
 //                                    ▼▼▼
 void setup()
@@ -97,8 +98,11 @@ void loop()
   Serial.print("\t");
   Serial.print((micros() - t) / 1000.); // Loop execution time
   Serial.print("\t");
-  Serial.println(r);
-
+  Serial.print(r);
+  Serial.print("\t");
+  Serial.print(p);
+  Serial.print("\t");
+  Serial.println(y);
   while (!myTimer.isTimeReached());  // Wait here Till 10 msec sample time Tick
 }
 
@@ -181,8 +185,8 @@ void IMU_Packet_Deframe(void)
   if(N==Len)
   {
     r = binToFloat(IMUPacket[7],IMUPacket[8],IMUPacket[9],IMUPacket[10]);      //deg
-    //p = binToFloat(IMUPacket[11],IMUPacket[12],IMUPacket[13],IMUPacket[14]);
-    //y = binToFloat(IMUPacket[15],IMUPacket[16],IMUPacket[17],IMUPacket[18]);
+    p = binToFloat(IMUPacket[11],IMUPacket[12],IMUPacket[13],IMUPacket[14]);
+    y = binToFloat(IMUPacket[15],IMUPacket[16],IMUPacket[17],IMUPacket[18]);
     
     //ax=binToFloat(IMUPacket[22],IMUPacket[23],IMUPacket[24],IMUPacket[25]);    //m per second^2
     //ay=binToFloat(IMUPacket[26],IMUPacket[27],IMUPacket[28],IMUPacket[29]);
