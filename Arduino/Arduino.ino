@@ -88,6 +88,7 @@ void loop()
   EASYCAT.MainTask();       // UDF for EasyCAT Trigger
   read_ADC();               // UDF for ADC reading
   read_IMU();               // UDF for IMU reading
+  IMU_Packet_Deframe();
   EtherCAT_Frame_Update();  // UDF for EtherCAT data Frame Updating
 
 
@@ -101,7 +102,13 @@ void loop()
 
 //♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦User Defined Functions♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
 //                                        ▼▼▼
-
+//▓▒▒▒╠═══ Bin To Float ═══╣▒▒▒▓
+float binToFloat(byte D3, byte D2, byte D1, byte D0)
+{
+  byte bin[4];
+  bin[3] = D3;  bin[2] = D2;  bin[1] = D1;  bin[0] = D0;
+  return *( (float*) bin ); 
+}
 
 //▓▒▒▒╠═══ ADC Read ══════╣▒▒▒▓
 void read_ADC()
@@ -167,7 +174,22 @@ void read_IMU(void)
   while (Serial1.available() > 0)Serial1.read(); //flush
   //Serial.println(IMUPacket[8]);
 }
+void IMU_Packet_Deframe(void)
+{
+  if(N==Len)
+  {
+    r = binToFloat(IMUPacket[7],IMUPacket[8],IMUPacket[9],IMUPacket[10]);      //deg
+    Serial.print(r);
+    //p = binToFloat(IMUPacket[11],IMUPacket[12],IMUPacket[13],IMUPacket[14]);
+    //y = binToFloat(IMUPacket[15],IMUPacket[16],IMUPacket[17],IMUPacket[18]);
+    
+    //ax=binToFloat(IMUPacket[22],IMUPacket[23],IMUPacket[24],IMUPacket[25]);    //m per second^2
+    //ay=binToFloat(IMUPacket[26],IMUPacket[27],IMUPacket[28],IMUPacket[29]);
+    //az=binToFloat(IMUPacket[30],IMUPacket[31],IMUPacket[32],IMUPacket[33]);
 
+    //T=binToFloat(IMUPacket[37],IMUPacket[38],IMUPacket[39],IMUPacket[40]);   // deg C
+  }
+}
 //▓▒▒▒╠═══ EtherCAT Data Update ╣▒▒▒▓
 void EtherCAT_Frame_Update()
 {
