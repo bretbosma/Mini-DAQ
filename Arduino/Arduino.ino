@@ -31,8 +31,8 @@ unsigned long t;        // variable to store time in MicroSecs, for loop executi
 
 byte Put2_Config_Mode[5] = {250,  255,  48,   0,  209};  // Command to put IMU in configuration mode
 //                         0xFA  0xFF  0x30  0x00  0xD1  // Hex form
-byte SetOutputConfiguration[17] = {250,  255,  192,   12,  32,  48,   0, 100,  64,  48,   0, 100,   8,  16, 255, 255, 151};  //
-//                                0xFA  0xFF  0xC0  0x0C 0x20 0x30 0x00 0x64 0x40 0x30 0x00 0x64 0x08 0x10 0xFF 0xFF 0xA7 // Hex form
+byte SetOutputConfiguration[17] = {250,  255,  192,   12,  32,  48,   0, 100,  64,  48,   0, 100,   8,  16, 0, 100, 49};  //
+//                                0xFA  0xFF  0xC0  0x0C 0x20 0x30 0x00 0x64 0x40 0x30 0x00 0x64 0x08 0x10 0x00 0x64 0x31 // Hex form
 //                                                       [ Euler ]           [ Accel ]           [ Temp  ]
 byte Put2_Measure_Mode[5] = {250,  255,  16,   0,  241}; // Command to put IMU in Measurement mode
 //                         0xFA  0xFF  0x10  0x00 0xF1   // Hex form
@@ -45,7 +45,8 @@ unsigned int N = 0;             // Number of IMU bytes captured each sample time
 unsigned int count = 0;
 
 float r,p,y;      //3*Eulers
-
+float ax,ay,az;               //3* Acc
+float T;                      // Temperature
 //♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦Setup♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
 //                                    ▼▼▼
 void setup()
@@ -100,9 +101,8 @@ void loop()
   Serial.print("\t");
   Serial.print(r);
   Serial.print("\t");
-  Serial.print(p);
-  Serial.print("\t");
-  Serial.println(y);
+  Serial.println(IMUPacket[7]);
+
   while (!myTimer.isTimeReached());  // Wait here Till 10 msec sample time Tick
 }
 
@@ -184,15 +184,16 @@ void IMU_Packet_Deframe(void)
 {
   if(N==Len)
   {
+
     r = binToFloat(IMUPacket[7],IMUPacket[8],IMUPacket[9],IMUPacket[10]);      //deg
     p = binToFloat(IMUPacket[11],IMUPacket[12],IMUPacket[13],IMUPacket[14]);
     y = binToFloat(IMUPacket[15],IMUPacket[16],IMUPacket[17],IMUPacket[18]);
     
-    //ax=binToFloat(IMUPacket[22],IMUPacket[23],IMUPacket[24],IMUPacket[25]);    //m per second^2
-    //ay=binToFloat(IMUPacket[26],IMUPacket[27],IMUPacket[28],IMUPacket[29]);
-    //az=binToFloat(IMUPacket[30],IMUPacket[31],IMUPacket[32],IMUPacket[33]);
+    ax=binToFloat(IMUPacket[22],IMUPacket[23],IMUPacket[24],IMUPacket[25]);    //m per second^2
+    ay=binToFloat(IMUPacket[26],IMUPacket[27],IMUPacket[28],IMUPacket[29]);
+    az=binToFloat(IMUPacket[30],IMUPacket[31],IMUPacket[32],IMUPacket[33]);
 
-    //T=binToFloat(IMUPacket[37],IMUPacket[38],IMUPacket[39],IMUPacket[40]);   // deg C
+    T=binToFloat(IMUPacket[37],IMUPacket[38],IMUPacket[39],IMUPacket[40]);   // deg C
   }
 }
 //▓▒▒▒╠═══ EtherCAT Data Update ╣▒▒▒▓
