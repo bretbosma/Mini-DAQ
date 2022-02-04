@@ -95,3 +95,4 @@ disp(['Data saved to ',datadirname,'\',datafilename])
 
 
 addpath(genpath(dataexpname))
+evalin('base','load(''datafilename'')');
