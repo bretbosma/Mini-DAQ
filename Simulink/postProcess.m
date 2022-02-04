@@ -90,7 +90,7 @@ fname = ['d',dateDir,'_',timeDir];
 
 save([datadirname,'\',fname,'.mat'],'output');
 
-datafilename = uigetfile([fname,'.mat']);
+datafilename = [fname,'.mat'];
 disp(['Data saved to ',datadirname,'\',datafilename])
 
 
