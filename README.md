@@ -11,7 +11,7 @@
 ## Simulink
 - Hardware: [Speedgoat](https://www.speedgoat.com/products-services/real-time-target-machines/baseline)
 - Software: [MATLAB/Simulink](https://www.mathworks.com/)
-- File: MiniDAQ.slx
+- Files: MiniDAQ.slx initMiniDAQ.m postProcess.m 
 - Notes:
   - Code that runs on the speedgoat necessary to visualize and store data
 
