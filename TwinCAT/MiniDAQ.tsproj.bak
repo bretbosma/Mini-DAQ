@@ -6,7 +6,7 @@
 	<Project ProjectGUID="{75223C71-0336-48A1-95E9-17787A784C54}" Target64Bit="true" ShowHideConfigurations="#x106">
 		<System>
 			<Tasks>
-				<Task Id="2" Priority="1" CycleTime="100000" AmsPort="301">
+				<Task Id="2" Priority="1" CycleTime="10000" AmsPort="301">
 					<Name>Task 2</Name>
 					<Vars VarGrpType="1" InsertType="1">
 						<Name>Inputs</Name>
