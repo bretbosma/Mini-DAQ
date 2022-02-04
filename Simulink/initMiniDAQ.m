@@ -2,6 +2,9 @@
 
 clearvars; close all; clc;
 
+projectName = 'MDtest';
+expname = 'IMU';
+trialname = 'Trial01';
 
 mdlName = 'MiniDAQ';
 appname = 'MiniDAQapp';
