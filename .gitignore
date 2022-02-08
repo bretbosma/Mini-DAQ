@@ -1,8 +1,9 @@
 <<<<<<< HEAD
 Simulink/Data/
 Simulink/simdata.mat
-=======
 simdata.mat
-Simulink/Data/
+Simulink/*.c
+Simulink/*.autosave
+Simulink/*.r2021a
 *.asv
 >>>>>>> 802c3dc9a1c009262a23fa6cbf9cc45182a79fe3
