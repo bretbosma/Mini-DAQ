@@ -3,7 +3,7 @@
 clearvars; close all; clc;
 
 projectName = 'MDtest';
-expname = 'IMU';
+expname = 'DAQtest';
 trialname = 'Trial01';
 
 mdlName = 'MiniDAQ';

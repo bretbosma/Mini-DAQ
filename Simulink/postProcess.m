@@ -6,6 +6,8 @@
 tgName = 'baseline2';
 buildDir = fullfile('C:','SimulinkBuild');
 mdlName = 'MiniDAQ';
+timeStamp = datestr(now,'yyyy-mm-dd HH-MM-SS');
+output.timeStamp = timeStamp;
 dateDir = datestr(now,'yyyymmdd');
 timeDir = datestr(now,'HHMMss');
 year = datestr(now,'yyyy');
@@ -73,7 +75,7 @@ for i = 1:numdatasets
         end
     end
 end
-%% === convert timestamp to datetime format================================
+
 
 currentDir = pwd;
 projectName = evalin('base','projectName');
@@ -84,7 +86,7 @@ datadirname = fullfile(dataexpname,trialname);
 if ~exist(datadirname,'dir')
     mkdir(datadirname);
 end
-formatOut = 'yyyymmdd_HHMMSS';
+
 fname = ['d',dateDir,'_',timeDir];
 
 
