@@ -94,10 +94,11 @@ void loop()
   read_IMU();               // UDF for IMU reading
   EtherCAT_Frame_Update();  // UDF for EtherCAT data Frame Updating
 
-
-  Serial.print(N);
-  Serial.print("\t");
-  Serial.println((micros() - t) / 1000.); // Loop execution time
+//  Serial.print("Bytes ");
+//  Serial.print(N);
+//  Serial.print("\t");
+//  Serial.print("ms ");   
+//  Serial.println((micros() - t) / 1000.); // Loop execution time
   while (!myTimer.isTimeReached());  // Wait here Till 10 msec sample time Tick
 }
 

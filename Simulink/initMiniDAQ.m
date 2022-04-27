@@ -4,7 +4,7 @@ clearvars; close all; clc;
 
 projectName = 'MDtest';
 expname = 'DAQtest';
-trialname = 'Trial01';
+trialname = 'Trial03';
 
 mdlName = 'MiniDAQ';
 appname = 'MiniDAQapp';
