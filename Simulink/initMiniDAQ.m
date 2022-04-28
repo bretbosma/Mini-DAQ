@@ -13,7 +13,7 @@ buildDir = fullfile('C:','SimulinkBuild');
 Ts = 1/1000;    % sample time for real time processes
 stopTime = '3660';
 
-tgName = 'baseline2';    % primary speedgoat (control if using 2 SG)
+tgName = 'baseline2';    
 
 % =========================================================================
 
