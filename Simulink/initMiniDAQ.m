@@ -16,7 +16,10 @@ stopTime = '3660';
 tgName = 'baseline2';    
 
 % =========================================================================
-
+% remove any open app windows
+allfigs = findall(0,'Type', 'figure');  % get handles to *all* figures
+app2Handle = findall(allfigs, 'Name', 'MATLAB App');  % isolate the app's handle based on the App's name.
+app2Handle.delete
 %% === get model information ==============================================
 mdlInfo = Simulink.MDLInfo(mdlName);
 mdlVersion = mdlInfo.ModelVersion;
