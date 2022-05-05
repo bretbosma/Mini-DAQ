@@ -1,5 +1,10 @@
 # Mini-DAQ
 
+## Video Tutorials
+- [MiniDAQ Chapter 1](https://vimeo.com/706663706)
+- [MiniDAQ Chapter 2](https://vimeo.com/706663862)
+- [MiniDAQ Chapter 2](https://vimeo.com/706664453)
+
 ## Arduino
 - Hardware: [Arduino Mega 2560](https://store.arduino.cc/usa/mega-2560-r3)
 - Software: [Arduino IDE](https://www.arduino.cc/en/software)
