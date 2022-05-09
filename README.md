@@ -1,7 +1,7 @@
 # Mini-DAQ
 
 ## Video Tutorials
-- [MiniDAQ Chapter 1](https://vimeo.com/706663706){:target="\_blank"}
+- <a href="https://vimeo.com/706663706" target="_blank">MiniDAQ Chapter 1</a>
 - [MiniDAQ Chapter 2](https://vimeo.com/706663862){:target="\_blank"}
 - [MiniDAQ Chapter 3](https://vimeo.com/706664453){:target="\_blank"}
 
