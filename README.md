@@ -1,4 +1,7 @@
 # Mini-DAQ
+## Publications
+- [Hardware X Journal Paper](https://www.hardware-x.com/article/S2468-0672(22)00077-3/fulltext)
+- [UMERC/METS Poster]
 
 ## Video Tutorials
 - [MiniDAQ Chapter 1](https://vimeo.com/706663706)
