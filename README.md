@@ -3,7 +3,10 @@
 - [Hardware X Journal Paper](https://www.hardware-x.com/article/S2468-0672(22)00077-3/fulltext)
 - [UMERC/METS Poster](Documentation/Bosma_MiniDAQ_UMERC_METS_Poster.pdf)
 
-## Video Tutorials
+## Videos
+- [MiniDAQ Testing](https://vimeo.com/896547888)
+
+### Tutorials
 - [MiniDAQ Chapter 1](https://vimeo.com/706663706)
 - [MiniDAQ Chapter 2](https://vimeo.com/706663862)
 - [MiniDAQ Chapter 3](https://vimeo.com/706664453)
